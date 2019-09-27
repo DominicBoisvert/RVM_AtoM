@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+
+  <skos:ConceptScheme rdf:about="http://10.10.10.10/subjects">
+
+                  <dc:title xml:lang="ca">Matières</dc:title>
+                  <dc:title xml:lang="en">Subjects</dc:title>
+
+          <skos:hasTopConcept rdf:resource="http://10.10.10.10/congres-et-conferences"/>
+
+  </skos:ConceptScheme>
+
+<skos:Concept rdf:about="http://10.10.10.10/congres-et-conferences">
+  <skos:prefLabel xml:lang="fr">Congrès et conférences</skos:prefLabel>
+    <skos:altLabel xml:lang="fr">Réunions annuelles</skos:altLabel>
+    <skos:altLabel xml:lang="fr">Conventions (Réunions)</skos:altLabel>
+    <skos:altLabel xml:lang="fr">Journées d&#039;étude</skos:altLabel>
+    <skos:inScheme rdf:resource="http://10.10.10.10/subjects"/>
+      <skos:narrower rdf:resource="http://10.10.10.10/cooperation-culturelle"/>
+      <skos:narrower rdf:resource="http://10.10.10.10/ateliers-groupes-de-travail"/>
+      <skos:narrower rdf:resource="http://10.10.10.10/conferences-de-consensus"/>
+      <skos:narrower rdf:resource="http://10.10.10.10/conferences-nationales"/>
+</skos:Concept>
+
+
+    <skos:Concept rdf:about="http://10.10.10.10/cooperation-culturelle">
+
+                        <skos:prefLabel xml:lang="fr">Coopération culturelle</skos:prefLabel>
+
+
+      <skos:inScheme rdf:resource="http://10.10.10.10/subjects"/>
+
+
+                        <skos:broader rdf:resource="http://10.10.10.10/congres-et-conferences"/>
+
+
+
+    </skos:Concept>
+
+
+    <skos:Concept rdf:about="http://10.10.10.10/ateliers-groupes-de-travail">
+
+                        <skos:prefLabel xml:lang="fr">Ateliers (Groupes de travail)</skos:prefLabel>
+
+
+      <skos:inScheme rdf:resource="http://10.10.10.10/subjects"/>
+
+
+                        <skos:broader rdf:resource="http://10.10.10.10/congres-et-conferences"/>
+
+
+
+    </skos:Concept>
+
+
+    <skos:Concept rdf:about="http://10.10.10.10/conferences-de-consensus">
+
+                        <skos:prefLabel xml:lang="fr">Conférences de consensus</skos:prefLabel>
+
+
+      <skos:inScheme rdf:resource="http://10.10.10.10/subjects"/>
+
+
+                        <skos:broader rdf:resource="http://10.10.10.10/congres-et-conferences"/>
+
+
+
+    </skos:Concept>
+
+
+    <skos:Concept rdf:about="http://10.10.10.10/conferences-nationales">
+
+                        <skos:prefLabel xml:lang="fr">Conférences nationales</skos:prefLabel>
+
+
+      <skos:inScheme rdf:resource="http://10.10.10.10/subjects"/>
+
+
+                        <skos:broader rdf:resource="http://10.10.10.10/congres-et-conferences"/>
+
+
+
+    </skos:Concept>
+
+
+</rdf:RDF>
