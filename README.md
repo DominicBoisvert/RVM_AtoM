@@ -1,4 +1,4 @@
-# RVM_AtoM
+# RVM vers AtoM
  
 Script en Python pour préparer les termes du RVM pour l'importation dans AtoM.
 
