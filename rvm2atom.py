@@ -1,37 +1,76 @@
-# Author : Dominic Boisvert
-# Email : db@dominicboisvert.ca
-# Scope : Python script to prepare a RVM term for importation in AtoM as a subject.
-# Use : python rvm2atom.py argument1 argument2
-# Use : argument1 is the name of the file imported from RVM.
-# Use : argument2 is the name of the output file, must be xml, example : congres.xml
-# Use : Add the name of the term in place of AJOUTER LE TERME ICI
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
-import os, re, sys
+"""
+rvm2atom
+---
+A Python tool to transform RVM XML into something AtoM understands.
+
+For information on usage and dependencies, see:
+https://github.com/DominicBoisvert/RVM_AtoM
+
+Python 3.4+
+
+The MIT License (MIT)
+Copyright (c) 2019 Dominic Boisvert
+http://dominicboisvert.ca
+
+"""
+
+import argparse
+import os
+import re
+import sys
 
 rvm_altLabel = []
-linenum = 0
-# Search pattern to find altlabel in RVM XML file. The pattern excludes some altLabels that are institutions.
+
+# Search pattern to find altlabel in RVM XML file. The pattern excludes some altLabels that are unwanted, mainly institutions names. Should be in a config file.
 pattern = re.compile('<skos:altLabel xml:lang="fr">' "[^AAT]" "[^RVM]" "[^CHS]" "[^MeSH]" "[^RAMEAU]", re.IGNORECASE)
 
-# We create or open atom_file to add some XML stuff at the beginning.
-with open(sys.argv[2], "w+") as atom_file:
-    atom_file.write('<?xml version="1.0" encoding="utf-8" ?>' + '\n' + '<rdf:RDF' + '\n' + 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' + 'xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' + 'xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' + 'xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' + '<skos:prefLabel xml:lang="fr">AJOUTER LE TERME ICI</skos:prefLabel>'  + '\n')
-atom_file.close()
+# Add help
+def _make_parser(version):
+    parser = argparse.ArgumentParser()
+    parser.add_argument("source", help="Path to source file, must be xml")
+    parser.add_argument("destination", help="Path to destination file, must be xml")
 
-# Open both files to find the altLabels in the input file and copy them in the output file.
-with open(sys.argv[1], 'rt') as rvm_file, \
-     open(sys.argv[2], mode='a+') as atom_file:
-    for line in rvm_file:
-        linenum += 1
-        if pattern.search(line) != None:      # If a match is found 
-            rvm_altLabel.append((linenum, line.rstrip('\n')))
-    for altLabel in rvm_altLabel:
-        atom_file.write(altLabel[1])
-# We close our files.
-atom_file.close()
-rvm_file.close()
+    return parser
 
-# We reopen atom_file to add some XML stuff at the end.
-with open(sys.argv[2], "a") as atom_file:
-    atom_file.write('</rdf:RDF>')
-atom_file.close()
+def main():
+    # system info
+    rvm2atom_version = 'rvm2atom 0.0.1'
+    linenum = 0
+
+    parser = _make_parser(rvm2atom_version)
+    args = parser.parse_args()
+
+    # global variables
+    global source, destination
+    source = os.path.abspath(args.source)
+    destination = os.path.abspath(args.destination)
+
+    # We create or open atom_file to add some XML stuff at the beginning.
+
+    with open(args.destination, "w+") as destination:
+        destination.write('<?xml version="1.0" encoding="utf-8" ?>' + '\n' + '<rdf:RDF' + '\n' + 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' + 'xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' + 'xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' + 'xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' '<skos:ConceptS>' + '\n' + '<skos:prefLabel xml:lang="fr">AJOUTER LE TERME ICI</skos:prefLabel>'  + '\n')
+    destination.close()
+
+
+    # Open both files to find the altLabels in the input file and copy them in the output file.
+    with open(args.source, 'rt') as source, \
+        open(args.destination, mode='a+') as destination:
+        for line in source:
+            linenum += 1
+            if pattern.search(line) != None:      # If a match is found 
+                rvm_altLabel.append((linenum, line.rstrip('\n')))
+        for altLabel in rvm_altLabel:
+            destination.write(altLabel[1])
+    # We close our files.
+    source.close()
+    destination.close()
+   
+    # We reopen atom_file to add some XML stuff at the end.
+    with open(args.destination, "a") as destination:
+        destination.write('</skos:Concept>' + '\n' + '</rdf:RDF>')
+    destination.close()
+
+main()

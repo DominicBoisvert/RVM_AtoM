@@ -4,10 +4,14 @@ Script en Python pour préparer les termes du RVM pour l'importation dans AtoM.
 
 ## Utilisation
 
-`python rvm2atom.py argument1 argument2`
+```usage: rvm2atom.py [-h]
+                     source destination
 
-`argument1` est le nom du fichier importé depuis le RVM.
+positional arguments:
+  source                Path to source file, must be XML
+  destination           Path to destination file, must be XML```
 
-`argument2` est le nom du fichier produit par le script, doit être en xml, par exemple : congres.xml
+rvm2atom accepte les chemins absolus et relatifs pour la source et la destination.
 
-Ouvrez le fichier produit et changez `AJOUTER LE TERME ICI` par le nom du terme à importer dans AtoM.
+Example commands:
+brunnhilde.py -z "/home/bcadmin/Desktop/Folder to Scan" /home/bcadmin/Desktop brunnhilde-test-0 : will result in a new directory "brunnhilde-test-0" on the BitCurator desktop containing various reports on input source "Folder to Scan".
