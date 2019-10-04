@@ -1,6 +1,6 @@
 # RVM vers AtoM
  
-Script en Python pour préparer les termes du RVM pour l'importation dans AtoM.
+Script en Python pour préparer les termes "sujets" du RVM pour l'importation dans AtoM.
 
 ## Utilisation
 
@@ -24,3 +24,5 @@ rvm2atom.py "/home/bcadmin/Desktop/File from rvm.xml" /home/bcadmin/Desktop/File
 Le script `rvm2atom.py` va créer une ligne `<skos:prefLabel xml:lang="fr">AJOUTER LE TERME ICI</skos:prefLabel>` dans le fichier de destination.
 
 Vous devrez remplacer le texte `AJOUTER LE TERME ICI` par le terme sujet que vous souhaitez importer dans AtoM.
+
+Vous pourrez ensuite importer le fichier XML dans AtoM.

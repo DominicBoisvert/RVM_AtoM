@@ -23,9 +23,14 @@ import re
 import sys
 
 rvm_altLabel = []
+rvm_prefLabel = []
 
 # Search pattern to find altlabel in RVM XML file. The pattern excludes some altLabels that are unwanted, mainly institutions names. Should be in a config file.
 pattern = re.compile('<skos:altLabel xml:lang="fr">' "[^AAT]" "[^RVM]" "[^CHS]" "[^MeSH]" "[^RAMEAU]", re.IGNORECASE)
+
+# Search for the last prefLabel in RVM XML file. But doesn't work because the prefLabel we want isn't always the last one.
+# re.findall(r"\w+ <skos:prefLabel xml:lang="fr"> \w+$", s)
+# patternPrefLabel = re.compile('<skos:prefLabel xml:lang="fr">', re.IGNORECASE)
 
 # Add help
 def _make_parser(version):
@@ -37,7 +42,7 @@ def _make_parser(version):
 
 def main():
     # system info
-    rvm2atom_version = 'rvm2atom 0.0.1'
+    rvm2atom_version = 'rvm2atom 0.0.2'
     linenum = 0
 
     parser = _make_parser(rvm2atom_version)
@@ -58,9 +63,16 @@ def main():
     # Open both files to find the altLabels in the input file and copy them in the output file.
     with open(args.source, 'rt') as source, \
         open(args.destination, mode='a+') as destination:
+# This code block doesn't work
+#        for line in source:
+#            linenum += 1
+#            if patternPrefLabel.search(line) != None:      # If a match is found
+#                rvm_prefLabel.append((linenum, line.rstrip('\n')))
+#        for prefLabel in rvm_prefLabel:
+#            destination.write(prefLabel[1])
         for line in source:
             linenum += 1
-            if pattern.search(line) != None:      # If a match is found 
+            if pattern.search(line) != None:      # If a match is found
                 rvm_altLabel.append((linenum, line.rstrip('\n')))
         for altLabel in rvm_altLabel:
             destination.write(altLabel[1])
