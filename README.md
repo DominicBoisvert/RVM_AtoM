@@ -6,7 +6,7 @@ Script en Python pour préparer les termes du RVM pour l'importation dans AtoM.
 
 ```
 usage: rvm2atom.py [-h]
-                     source destination
+                   source destination
 
 positional arguments:
   source                Path to source file, must be XML
