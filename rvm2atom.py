@@ -36,10 +36,10 @@ pattern = re.compile('<skos:altLabel xml:lang="fr">' "[^AAT]" "[^RVM]" "[^CHS]" 
 # Add help
 def _make_parser(version):
     parser = argparse.ArgumentParser()
-    parser.add_argument("source", help="Path to source file, must be xml") # This is our input file from RVM
-    parser.add_argument("destination", help="Path to destination file, must be xml") # This is our output file for AtoM
-    parser.add_argument("-sh", "--subject heading", help="Name to insert in the tag.", action="store_true") # This is the name of the subject heading
-    parser.add_argument("-V", "--version", help="Display rvm2atom version", action="version", version="%s" % version)
+    parser.add_argument("source", help="path to source file, must be xml") # This is our input file from RVM
+    parser.add_argument("destination", help="path to destination file, must be xml") # This is our output file for AtoM
+    parser.add_argument("subject", help="subject heading to insert in the prefLabel tag.") # This is the name of the subject heading
+    parser.add_argument("-V", "--version", help="display rvm2atom version", action="version", version="%s" % version)
 
     return parser
 
@@ -53,14 +53,23 @@ def main():
     # global variables
     global source, destination, subject
     source = os.path.abspath(args.source) 
-    destination = os.path.abspath(args.destination) 
+    destination = os.path.abspath(args.destination)
+    subject = args.subject
 
     # We need this for line 67. 
     linenum = 0
 
     # We create or open destination file to add some XML stuff at the beginning.
     with open(args.destination, "w+") as destination:
-        destination.write('<?xml version="1.0" encoding="utf-8" ?>' + '\n' + '<rdf:RDF' + '\n' + '    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' + '    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' + '    xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' + '    xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' + '\n' + '    <skos:ConceptS>' + '\n' + '\n' + '        <skos:prefLabel xml:lang="fr">AJOUTER LE TERME ICI</skos:prefLabel>'  + '\n' + '\n')
+        destination.write('<?xml version="1.0" encoding="utf-8" ?>' + '\n' \
+        + '<rdf:RDF' + '\n' \
+        +'    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' \
+        +'    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' \
+        +'    xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' \
+        +'    xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' + '\n' \
+        + '    <skos:ConceptS>' + '\n' 
+        + '\n' \
+        + '        <skos:prefLabel xml:lang="fr">' + subject + '</skos:prefLabel>'  + '\n' + '\n')
     destination.close()
 
     # Open both files to find the altLabels in the source file and copy them in the destination file. We could have better wrapping.
