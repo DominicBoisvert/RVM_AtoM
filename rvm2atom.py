@@ -36,8 +36,10 @@ pattern = re.compile('<skos:altLabel xml:lang="fr">' "[^AAT]" "[^RVM]" "[^CHS]" 
 # Add help
 def _make_parser(version):
     parser = argparse.ArgumentParser()
-    parser.add_argument("source", help="Path to source file, must be xml")
-    parser.add_argument("destination", help="Path to destination file, must be xml")
+    parser.add_argument("source", help="Path to source file, must be xml") # This is our input file from RVM
+    parser.add_argument("destination", help="Path to destination file, must be xml") # This is our output file for AtoM
+    parser.add_argument("-sh", "--subject heading", help="Name to insert in the tag.", action="store_true") # This is the name of the subject heading
+    parser.add_argument("-V", "--version", help="Display rvm2atom version", action="version", version="%s" % version)
 
     return parser
 
@@ -49,9 +51,9 @@ def main():
     args = parser.parse_args()
 
     # global variables
-    global source, destination
-    source = os.path.abspath(args.source)
-    destination = os.path.abspath(args.destination)
+    global source, destination, subject
+    source = os.path.abspath(args.source) 
+    destination = os.path.abspath(args.destination) 
 
     # We need this for line 67. 
     linenum = 0
