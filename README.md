@@ -17,9 +17,10 @@ positional arguments:
 
 rvm2atom accepte les chemins absolus et relatifs pour la source et la destination. Le sujet doit être entre guillemets lorsqu'il est composé de plus d'un mot.
 
-Exemples de commandes :
+Exemple d'une commande avec des espaces dans le chemin et plus d'un mot pour former le sujet :
 `rvm2atom.py "/home/bcadmin/Desktop/File from rvm.xml" "/home/bcadmin/Desktop/File for atom.xml" "congrès et conférence"`
 
+Exemple d'une comande dans le répertoire de travail et pour un sujet formé d'un seul mot : 
 `rvm2atom.py rvm.xml atom.xml restaurants`
 
 Le résultat est un fichier XML presque prêt pour l'importation dans AtoM.
