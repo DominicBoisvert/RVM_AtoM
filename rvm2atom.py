@@ -45,7 +45,7 @@ def _make_parser(version):
 
 def main():
     # system info
-    rvm2atom_version = 'rvm2atom 0.0.2'
+    rvm2atom_version = 'rvm2atom 0.0.3'
 
     parser = _make_parser(rvm2atom_version)
     args = parser.parse_args()
