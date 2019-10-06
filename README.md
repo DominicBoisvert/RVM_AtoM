@@ -23,10 +23,4 @@ Exemple d'une commande avec des espaces dans le chemin et plus d'un mot pour for
 Exemple d'une comande dans le répertoire de travail et pour un sujet formé d'un seul mot : 
 `rvm2atom.py rvm.xml atom.xml restaurants`
 
-Le résultat est un fichier XML presque prêt pour l'importation dans AtoM.
-
-### Avant l'importation dans AtoM
-
-Vous devez valider les `altLabel` du fichier de destination. Le RVM utilise aussi cette balise pour identifier des sources.
-
-Vous pourrez ensuite importer le fichier XML dans AtoM.
+Le résultat est un fichier XML prêt pour l'importation dans AtoM.

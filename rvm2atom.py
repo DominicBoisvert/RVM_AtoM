@@ -10,6 +10,7 @@ For information on usage and dependencies, see:
 https://github.com/DominicBoisvert/RVM_AtoM
 
 Python 2.7+
+Python 3.6+
 
 The MIT License (MIT)
 Copyright (c) 2019 Dominic Boisvert
@@ -27,7 +28,8 @@ rvm_altLabel = []
 rvm_prefLabel = []
 
 # Search pattern to find altlabel in RVM XML file. The pattern excludes some altLabels that are unwanted, mainly institutions names it might not catch them all. Should be in a config file.
-pattern = re.compile('<skos:altLabel xml:lang="fr">' "[^AAT]" "[^RVM]" "[^CHS]" "[^MeSH]" "[^RAMEAU]", re.IGNORECASE)
+# You can add excluded terms to the pattern by adding '[^excluded term]'
+pattern = re.compile('<skos:altLabel xml:lang="fr">' '[^AAT]' '[^CHS]' '[^MeSH]' '[^RAMEAU]' '[^RVM]', re.IGNORECASE)
 
 # Search for the last prefLabel in RVM XML file. But doesn't work because the prefLabel we want isn't always the last one.
 # re.findall(r"\w+ <skos:prefLabel xml:lang="fr"> \w+$", s)
@@ -45,7 +47,7 @@ def _make_parser(version):
 
 def main():
     # system info
-    rvm2atom_version = 'rvm2atom 0.0.3'
+    rvm2atom_version = 'rvm2atom 0.0.4'
 
     parser = _make_parser(rvm2atom_version)
     args = parser.parse_args()
@@ -56,20 +58,20 @@ def main():
     destination = os.path.abspath(args.destination)
     subject = args.subject
 
-    # We need this for line 67. 
+    # We need this for line 80. 
     linenum = 0
 
     # We create or open destination file to add some XML stuff at the beginning.
     with open(args.destination, "w+") as destination:
         destination.write('<?xml version="1.0" encoding="utf-8" ?>' + '\n' \
-        + '<rdf:RDF' + '\n' \
-        +'    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' \
-        +'    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' \
-        +'    xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' \
-        +'    xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' + '\n' \
-        + '    <skos:ConceptS>' + '\n' 
+        +'<rdf:RDF' + '\n' \
+        + '\t' + 'xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"' + '\n' \
+        + '\t' + 'xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"' + '\n' \
+        + '\t' +  'xmlns:skos="http://www.w3.org/2004/02/skos/core#"' + '\n' \
+        + '\t' + 'xmlns:dc="http://purl.org/dc/elements/1.1/">' + '\n' + '\n' \
+        + '\t' + '<skos:ConceptS>' + '\n' 
         + '\n' \
-        + '        <skos:prefLabel xml:lang="fr">' + subject + '</skos:prefLabel>'  + '\n' + '\n')
+        + '\t' + '\t' + '<skos:prefLabel xml:lang="fr">' + subject + '</skos:prefLabel>'  + '\n' + '\n')
     destination.close()
 
     # Open both files to find the altLabels in the source file and copy them in the destination file. We could have better wrapping.
@@ -80,14 +82,16 @@ def main():
             if pattern.search(line) != None:      # If a match is found
                 rvm_altLabel.append((linenum, line.rstrip('\n')))
         for altLabel in rvm_altLabel:
-            destination.write(altLabel[1])
+            destination.write('\t' + altLabel[1] + '\n')
     # We close our files.
     source.close()
     destination.close()
    
     # We reopen destination file to add some XML stuff at the end.
     with open(args.destination, "a") as destination:
-        destination.write('    </skos:Concept>' + '\n' + '</rdf:RDF>')
+        destination.write('\n' \
+            + '\t' + '</skos:Concept>' \
+            + '\n' + '</rdf:RDF>')
     destination.close()
 
 main()
