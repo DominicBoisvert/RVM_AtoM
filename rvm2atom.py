@@ -22,7 +22,6 @@ import argparse
 import os
 import re
 import sys
-import textwrap
 
 rvm_altLabel = []
 rvm_prefLabel = []
