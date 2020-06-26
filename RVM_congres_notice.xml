@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF 
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" 
+ xmlns:skos="http://www.w3.org/2004/02/skos/core#" 
+ xmlns:dcterms="http://purl.org/dc/terms/" 
+ xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" >
+
+<skos:ConceptScheme rdf:about="https://rvmweb.bibl.ulaval.ca/" >
+	<skos:prefLabel xml:lang="fr">Répertoire de vedettes-matières</skos:prefLabel>
+	<skos:altLabel xml:lang="fr">RVM</skos:altLabel>
+	<dcterms:creator rdf:resource="https://rvmweb.bibl.ulaval.ca/" xml:lang="fr">Université Laval</dcterms:creator>
+</skos:ConceptScheme>
+<skos:ConceptScheme rdf:about="http://www.collectionscanada.gc.ca/obj/900/f11/040004/canadian-subject-headings" >
+	<skos:prefLabel xml:lang="fr">Canadian Subject Heading</skos:prefLabel>
+	<skos:altLabel xml:lang="fr">CHS</skos:altLabel>
+	<dcterms:creator xml:lang="fr">Bibliothèque et Archives Canada</dcterms:creator>
+</skos:ConceptScheme>
+<skos:ConceptScheme rdf:about="http://www.nlm.nih.gov/mesh#conceptScheme" >
+	<skos:prefLabel xml:lang="en">Medical Subject Headings</skos:prefLabel>
+	<skos:altLabel xml:lang="en">MeSH</skos:altLabel>
+	<dcterms:creator rdf:resource="http://id.loc.gov/authorities/subjects#conceptScheme" xml:lang="en">U.S. National Library of Medicine</dcterms:creator>
+</skos:ConceptScheme>
+<skos:ConceptScheme rdf:about="http://data.bnf.fr/vocabulary/scheme/r166" >
+	<skos:prefLabel xml:lang="fr">Répertoire d'autorité-matière encyclopédique et alphabétique unifié</skos:prefLabel>
+	<skos:altLabel xml:lang="fr">RAMEAU</skos:altLabel>
+	<dcterms:creator xml:lang="fr">Bibliothèque nationale de France</dcterms:creator>
+</skos:ConceptScheme>
+<skos:ConceptScheme rdf:about="http://vocab.getty.edu/aat/" >
+	<skos:prefLabel xml:lang="en">Art and Architecture Thesaurus</skos:prefLabel>
+	<skos:altLabel xml:lang="en">AAT</skos:altLabel>
+	<dcterms:creator rdf:resource="http://www.getty.edu/research/" xml:lang="en">The Getty Research Institute</dcterms:creator>
+</skos:ConceptScheme>
+<rdf:Description rdf:about="https://rvmweb.bibl.ulaval.ca/notice/201-0047818/format/xml">
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">Congrès et conférences</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:altLabel xml:lang="fr">Réunions annuelles</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Conventions Réunions</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Journées d étude</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Séminaires Réunions</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Symposiums</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Colloques</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Assemblées annuelles</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Carrefours Réunions</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Congrès</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Tables rondes Conférences</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Rencontres annuelles</skos:altLabel>
+	<skos:altLabel xml:lang="fr">Conférences Réunions</skos:altLabel>
+	<skos:broader rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0013029/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0012270/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0277780/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0048470/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0061161/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0247856/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0093014/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0124422/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0387011/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0075371/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0016096/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0346147/format/xml" />
+	<skos:narrower rdf:resource="https://rvmweb.bibl.ulaval.ca/notice/201-0035205/format/xml" />
+	<skos:closeMatch>	
+	<rdf:Description>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">conferences</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://vocab.getty.edu/aat/" />
+	</rdf:Description>
+	</skos:closeMatch>
+	<skos:closeMatch>	
+	<rdf:Description>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">Congrès et conférences</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://catalogue.bnf.fr/ark:/12148/cb" />
+	</rdf:Description>
+	</skos:closeMatch>
+	<skos:closeMatch>	
+	<rdf:Description>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">Congresses</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://www.nlm.nih.gov/mesh#conceptScheme" />
+	</rdf:Description>
+	</skos:closeMatch>
+	<skos:closeMatch>	
+	<rdf:Description>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">Congresses and conventions</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://id.loc.gov/authorities/subjects/" />
+	</rdf:Description>
+	</skos:closeMatch>
+	<skos:closeMatch>	
+	<rdf:Description>
+	<rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#" />
+	<skos:prefLabel xml:lang="fr">Congresses as Topic</skos:prefLabel>
+	<skos:inScheme rdf:ressource="http://www.nlm.nih.gov/mesh#conceptScheme" />
+	</rdf:Description>
+	</skos:closeMatch>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdfs:label>source data found</rdfs:label>
+		<rdf:value>Biblio, 1971.</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Congrès et conférences voir la subdivision congrès, conférences, etc...</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Grand dictionnaire encyclopédique Larousse, 1985.</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Congrès 1. Réunion, conférence... -2.Réunion de personnes... + conférence ; Journée... Journée(s) d'étude, réunions, colloques, débats, etc. qui se déroulent dans le cadre d'une discipline sur une ou plusieurs journées.</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Le nouv. Petit Robert, 1993.</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Congrès 1 et 3 + conférence.</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>L'Actualité term., v. 13, no 7 (1980).</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Villers, M.-È. de. Multidict. de la langue franç., 2003.</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Congrès... colloque... séminaire... symposium ; Table... Table ronde ; Convention... Anglicisme au sens de congrès.</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Assemblées annuelles (Groupe de la Banque africaine de développement) [Page Internet consultée en 2013].</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Assemblées annuelles.</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Réunions annuelles (Société canadienne de chirurgie plastique et esthétique) [Page Internet consultée en 2013].</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Réunions annuelles.</dcterms:description>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<rdf:value>Lancement de la 3e édition des rencontres annuelles des services sociaux (Institut national d'excellence en santé et en services sociaux, Québec) [Page Internet consultée en 2013].</rdf:value>
+</skos:note>
+<skos:note xml:lang="fr" rdf:parseType="Resource">
+		<dcterms:description>Rencontres annuelles.</dcterms:description>
+</skos:note>
+	<skos:changeNote>	
+	<cs:ChangeSet xmlns:cs="http://purl.org/vocab/changeset/schema#">		
+		<cs:subjectOfChange rdf:resource="http://www.w3.org/2004/02/skos/core#" />		
+		<cs:creatorName>Université Laval</cs:creatorName>		
+		<cs:createdDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2079-10-29</cs:createdDate>		
+		<cs:changeReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">new</cs:changeReason>
+	</cs:ChangeSet>
+	</skos:changeNote>
+	<skos:changeNote>	
+	<cs:ChangeSet xmlns:cs="http://purl.org/vocab/changeset/schema#">		
+		<cs:subjectOfChange rdf:resource="http://www.w3.org/2004/02/skos/core#" />		
+		<cs:creatorName>Université Laval</cs:creatorName>		
+		<cs:createdDate rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2019-04-02</cs:createdDate>		
+		<cs:changeReason rdf:datatype="http://www.w3.org/2001/XMLSchema#string">revised</cs:changeReason>
+	</cs:ChangeSet>
+	</skos:changeNote>
+</rdf:Description>
+</rdf:RDF>
